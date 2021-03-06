@@ -1,12 +1,21 @@
+import java.util.List;
+
 public abstract class User {
     private String UserID;
     private String UserName;
     private String PhoneNumber;
+    private String address;
+    private String Password;
 
-    public User(String UID, String UN, String PN) {
+
+    List<Order> UserOreders;
+
+    public User(String UID, String UN, String PN, String address, String Password) {
         this.UserID = UID;
         this.UserName = UN;
         this.PhoneNumber = PN;
+        this.address = address;
+        this.Password = Password;
     }
 
     public String getUserID() {
@@ -20,4 +29,8 @@ public abstract class User {
     public String getPhoneNumber() {
         return PhoneNumber;
     }
+
+    public abstract void operations();
+
+
 }
