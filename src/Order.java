@@ -3,6 +3,7 @@ import java.util.List;
 
 public class Order {
     String OrderID;
+    Status status;
     List<Restaurant.Dish> OrderContent;
     Double price;
     Customer orderCustomer;
@@ -29,6 +30,15 @@ public class Order {
 
     public void emptyOrder() {
         OrderContent = new ArrayList<>();
+    }
+
+    enum Status {
+        WaitRestaurantConfirm,
+        RestaurantPreparing,
+        WaitDriverPickup,
+        DriverDelivering,
+        Delivered,
+        Reported;
     }
 
 
