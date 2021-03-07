@@ -30,6 +30,10 @@ public abstract class User {
         return PhoneNumber;
     }
 
+    public void report() {
+
+    }
+
     public abstract void operations();
 
 
