@@ -8,7 +8,7 @@ public abstract class User {
     private String Password;
 
 
-    List<Order> UserOreders;
+    List<Order> UserOrders;
 
     public User(String UID, String UN, String PN, String address, String Password) {
         this.UserID = UID;
