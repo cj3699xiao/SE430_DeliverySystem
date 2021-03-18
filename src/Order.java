@@ -12,6 +12,11 @@ public class Order {
 
     // potential changed --> add public cart to improve encapsulation
     // order --> private
+    public Order(String orderID) {
+        this.OrderID = orderID;
+        OrderContent = new ArrayList<>();
+    }
+
     public boolean addItem(String item) {
         return true;
     }

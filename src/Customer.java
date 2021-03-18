@@ -5,9 +5,11 @@ import java.util.Scanner;
 public class Customer extends User {
     private List<Order> orderList;
 
-    public Customer(String UID, String UN, String PN, String address, String Password) {
-        super(UID, UN, PN, address, Password);
+
+    public Customer(String UID, String UN, String PN, String address, String Password, DeliverySystem ds) {
+        super(UID, UN, PN, address, Password, ds);
         orderList = new ArrayList<>();
+
     }
 
     @Override
@@ -33,7 +35,9 @@ public class Customer extends User {
 
             if (oper == 1) {
                 //create new order
+                Order newOrder = new Order(super.getUserID() + "" + this.orderList.size());
                 //show all restaurant
+                super.getDeliverySystem().printAllRestaurant();
                 //show menu, allow add into order
                 // submit --> add to user || cancel --> noop
             } else if (oper == 2) {
