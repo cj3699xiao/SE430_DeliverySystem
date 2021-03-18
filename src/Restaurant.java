@@ -32,6 +32,11 @@ public class Restaurant extends User{
 
     }
 
+    @Override
+    public String toString() {
+        return super.getUserName();
+    }
+
     class Dish {
         int DishID;
         String name;
