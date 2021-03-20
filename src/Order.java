@@ -2,17 +2,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
-    String OrderID;
+    int OrderID;
     Status status;
     List<Restaurant.Dish> OrderContent;
-    Double price;
+    double price;
     Customer orderCustomer;
     Restaurant orderRestaurant;
     Driver orderDriver;
 
     // potential changed --> add public cart to improve encapsulation
     // order --> private
-    public Order(String orderID) {
+    public Order(int orderID) {
         this.OrderID = orderID;
         OrderContent = new ArrayList<>();
     }
@@ -37,13 +37,39 @@ public class Order {
         OrderContent = new ArrayList<>();
     }
 
-    enum Status {
+    @Override
+    public String toString() {
+        StringBuilder res = new StringBuilder();
+        res.append("OrderID:  ");
+        res.append(OrderID);
+        res.append("  Customer: ");
+        res.append(orderCustomer);
+        res.append("  Customer Address: ");
+        res.append(orderCustomer.getAddress());
+        res.append("  Customer Number: ");
+        res.append(orderCustomer.getPhoneNumber());
+
+        res.append("\nRestaurant: ");
+        res.append(orderRestaurant);
+        res.append(".  Price:  $");
+        res.append(price);
+        res.append("  Driver:  ");
+        res.append(orderDriver);
+        res.append("\nStatus: ");
+        res.append(status.toString());
+
+        // add all dishes as well, to do
+        return res.toString();
+    }
+
+    public enum Status {
         WaitRestaurantConfirm,
         RestaurantPreparing,
         WaitDriverPickup,
         DriverDelivering,
         Delivered,
         Reported;
+        // add toString, to do
     }
 
 

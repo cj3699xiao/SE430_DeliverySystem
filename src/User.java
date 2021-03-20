@@ -31,6 +31,8 @@ public abstract class User {
         return PhoneNumber;
     }
 
+    public String getAddress() {return address;}
+
     public DeliverySystem getDeliverySystem() {
         return this.deliverySystem;
     }

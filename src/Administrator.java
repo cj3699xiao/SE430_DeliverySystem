@@ -1,6 +1,6 @@
 public class Administrator extends User{
-    public Administrator(String UID, String UN, String PN, String address, String Password) {
-        super(UID, UN, PN, address, Password);
+    public Administrator(String UID, String UN, String PN, String address, String Password, DeliverySystem ds) {
+        super(UID, UN, PN, address, Password, ds);
     }
 
     @Override

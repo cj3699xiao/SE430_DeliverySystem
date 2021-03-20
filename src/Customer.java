@@ -35,13 +35,107 @@ public class Customer extends User {
 
             if (oper == 1) {
                 //create new order
-                Order newOrder = new Order(super.getUserID() + "" + this.orderList.size());
-                //show all restaurant
+                Order newOrder = new Order(super.getDeliverySystem().allOrder.size());
+
+                //show all restaurant, allow to select valid one
                 super.getDeliverySystem().printAllRestaurant();
+                System.out.println("Please select your restaurant: ");
+                String restInput = input.nextLine();
+                int restNum = -1;
+
+                try {
+                    restNum = Integer.parseInt(restInput);
+                } catch (NumberFormatException e) {
+                    System.out.println("Error! Please enter a valid restaurant number!");
+                    continue;
+                }
+
+                if (restNum < 0 || restNum >= super.getDeliverySystem().allRestaurant.size()) {
+                    System.out.println("Error! Please enter a valid restaurant number!");
+                    continue;
+                }
+
+                newOrder.orderRestaurant = super.getDeliverySystem().allRestaurant.get(restNum);
+
                 //show menu, allow add into order
+                newOrder.orderRestaurant.printMenu();
+//                System.out.println("Enter -1 to finish ");
+//                System.out.println("Please select your dishes: ");
+//                String dishInput = input.nextLine();
+                int dishNum = 0;
+
+                while (dishNum != -1) {
+                    System.out.println("Enter -1 to finish ");
+                    System.out.println("Please select your dishes: ");
+                    String dishInput = input.nextLine();
+
+                    //duplicate code, to do
+                    try {
+                        dishNum = Integer.parseInt(dishInput);
+                    } catch (NumberFormatException e) {
+                        System.out.println("Error! Please enter a valid dish number!");
+                        continue;
+                    }
+
+                    if (dishNum == - 1) {
+                        continue;
+                    }
+
+                    if (dishNum < 0 || dishNum >= newOrder.orderRestaurant.menu.size()) {
+                        System.out.println("Error! Please enter a valid dish number!");
+                        continue;
+                    }
+
+                    newOrder.OrderContent.add(newOrder.orderRestaurant.menu.get(dishNum));
+                    newOrder.price += newOrder.orderRestaurant.menu.get(dishNum).price;
+
+                    //print current order content
+                    System.out.println("-----------------");
+                    System.out.println("Your current order has: ");
+
+                    for (int i = 0; i <= newOrder.OrderContent.size() - 1; i++) {
+                        System.out.println(newOrder.OrderContent.get(i).toString());
+                    }
+                    System.out.println("Your current price is: $" + newOrder.price);
+                }
+
+
                 // submit --> add to user || cancel --> noop
+                System.out.println("Please enter 1 to confirm your order or 2 to cancel: ");
+                String confirmInput = input.nextLine();
+                int confirmOp = 0;
+
+                // if not 1, will cancel, could improve. to do
+                try {
+                    confirmOp = Integer.parseInt(confirmInput);
+                } catch (NumberFormatException e) {
+                    System.out.println("Error! Please enter a valid operation number!");
+                    continue;
+                }
+
+                if (confirmOp !=  1 && confirmOp != 2) {
+                    System.out.println("Error! Please enter a valid operation number!");
+                    continue;
+                }
+
+                if (confirmOp == 1) {
+                    newOrder.orderCustomer = this;
+                    newOrder.status = Order.Status.WaitRestaurantConfirm;
+
+                    this.orderList.add(newOrder);
+                    super.getDeliverySystem().allOrder.add(newOrder);
+                }
+                continue;
+
+
             } else if (oper == 2) {
                 // print all my orders (for now, later could sharding)
+                for (int i = 0; i <= this.orderList.size() - 1; i++) {
+                    System.out.println("--------------------");
+                    System.out.println(orderList.get(i).toString());
+                }
+                System.out.println();
+                continue;
 
             } else if (oper == 3) {
                 // report to admin, with calls/emails, not inside system
@@ -58,19 +152,25 @@ public class Customer extends User {
     }
 
 
-    private void selectRestaurant() {
+//    private void selectRestaurant(Scanner in) {
+//
+//    }
+//
+//    private void createOrder() {
+//
+//    }
+//
+//    private void confirmOrder() {
+//
+//    }
 
+    @Override
+    public String toString() {
+        return super.getUserName();
     }
 
-    private void createOrder() {
+    public static void main(String[] args) {
 
     }
-
-    private void confirmOrder() {
-
-    }
-
-
-
 }
 

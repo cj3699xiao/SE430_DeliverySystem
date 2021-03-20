@@ -1,8 +1,16 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class DeliverySystem {
     List<User> allUser;
     List<Restaurant> allRestaurant;
+    List<Order> allOrder;
+
+    public DeliverySystem() {
+        allRestaurant = new ArrayList<>();
+        allUser = new ArrayList<>();
+        allOrder = new ArrayList<>();
+    }
 
     public void run() {
 

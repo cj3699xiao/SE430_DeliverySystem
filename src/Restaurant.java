@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Restaurant extends User{
@@ -5,12 +6,21 @@ public class Restaurant extends User{
 
     public Restaurant(String UID, String UN, String PN, String address, String Password, DeliverySystem ds) {
         super(UID, UN, PN, address, Password, ds);
+        menu = new ArrayList<>();
     }
 
     @Override
     public void operations() {
 
     }
+
+    public void printMenu() {
+        for (int i = 0; i <= menu.size() - 1; i++) {
+            System.out.println(i + ". " +menu.get(i).toString());
+        }
+
+    }
+
 
     private void addDish() {
 
@@ -37,7 +47,7 @@ public class Restaurant extends User{
         return super.getUserName();
     }
 
-    class Dish {
+    public static class Dish {
         int DishID;
         String name;
         double price;
@@ -46,6 +56,15 @@ public class Restaurant extends User{
             this.name = name;
             this.price = price;
             this.DishID = DID;
+        }
+
+        @Override
+        public String toString() {
+            StringBuilder res = new StringBuilder();
+            res.append(this.name);
+            res.append("  $ ");
+            res.append(this.price);
+            return res.toString();
         }
     }
 }
