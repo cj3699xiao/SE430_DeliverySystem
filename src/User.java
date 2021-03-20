@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.Scanner;
 
 public abstract class User {
     private String UserID;
@@ -41,7 +42,7 @@ public abstract class User {
 
     }
 
-    public abstract void operations();
+    public abstract void operations(Scanner input);
 
 
 }

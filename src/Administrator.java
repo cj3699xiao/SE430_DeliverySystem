@@ -6,9 +6,9 @@ public class Administrator extends User{
     }
 
     @Override
-    public void operations() {
+    public void operations(Scanner input) {
         // to change!
-        Scanner input = new Scanner(System.in);
+//        Scanner input = new Scanner(System.in);
         int oper = 0;
 
         while (oper != 9) {
@@ -44,7 +44,7 @@ public class Administrator extends User{
             }
         }
 
-        input.close();
+//        input.close();
 
     }
 

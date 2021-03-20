@@ -13,8 +13,8 @@ public class Customer extends User {
     }
 
     @Override
-    public void operations() {
-        Scanner input = new Scanner(System.in);
+    public void operations(Scanner input) {
+//        Scanner input = new Scanner(System.in);
         int oper = 0;
 
         while (oper != 9) {
@@ -147,7 +147,7 @@ public class Customer extends User {
             }
         }
 
-        input.close();
+//        input.close();
     }
 
 

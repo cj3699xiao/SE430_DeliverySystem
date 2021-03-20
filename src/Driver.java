@@ -1,19 +1,20 @@
 import java.util.Scanner;
 
 public class Driver extends User{
+    protected Order processOrder;
 
     public Driver(String UID, String UN, String PN, String address, String Password,DeliverySystem ds) {
         super(UID, UN, PN, address, Password, ds);
     }
 
     @Override
-    public void operations() {
+    public void operations(Scanner input) {
         // to change!
-        Scanner input = new Scanner(System.in);
+//        Scanner input = new Scanner(System.in);
         int oper = 0;
 
         while (oper != 9) {
-            System.out.println("Hello, Restaurant " + super.getUserName() + ". Please select following options: ");
+            System.out.println("Hello, Driver " + super.getUserName() + ". Please select following options: ");
             System.out.println("1. Show all restaurant orders");
             System.out.println("2. Confirm order status to prepared");
             System.out.println("3. Confirm order status to been picked up");
@@ -45,7 +46,7 @@ public class Driver extends User{
             }
         }
 
-        input.close();
+//        input.close();
 
     }
 
