@@ -5,9 +5,23 @@ public class Test {
         DeliverySystem testDS = new DeliverySystem();
 
         Restaurant testR0 = new Restaurant("0","testBurgerRestaurant0","312-0000","rt0 St","123",testDS);
+        Restaurant testR1 = new Restaurant("1","testSaladRestaurant1","312-0001","rt1 St","123",testDS);
+        Restaurant testR2 = new Restaurant("2","testSteakRestaurant2","312-0000","rt2 St","123",testDS);
         testR0.menu.add(new Restaurant.Dish("burger0", 3.0, 0));
+        testR0.menu.add(new Restaurant.Dish("burger1", 5.0, 1));
+        testR0.menu.add(new Restaurant.Dish("burger2", 7.0, 2));
+
+        testR1.menu.add(new Restaurant.Dish("Salad0", 1.5, 0));
+        testR1.menu.add(new Restaurant.Dish("Salad1", 2.5, 1));
+        testR1.menu.add(new Restaurant.Dish("Salad2", 3.5, 2));
+
+        testR2.menu.add(new Restaurant.Dish("Steak0", 8.0, 0));
+        testR2.menu.add(new Restaurant.Dish("Steak1", 9.5, 1));
+        testR2.menu.add(new Restaurant.Dish("Steak2", 11.5, 2));
 
         testDS.allRestaurant.add(testR0);
+        testDS.allRestaurant.add(testR1);
+        testDS.allRestaurant.add(testR2);
 
 
         //use journey test
