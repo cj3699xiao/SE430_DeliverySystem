@@ -121,6 +121,7 @@ public class Customer extends User {
 
                     this.orderList.add(newOrder);
                     super.getDeliverySystem().allOrder.add(newOrder);
+                    newOrder.orderRestaurant.OrderList.add(newOrder);
                 }
                 continue;
 

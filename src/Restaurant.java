@@ -32,7 +32,7 @@ public class Restaurant extends User{
                 System.out.println("Error! Please enter a valid operation!");
                 continue;
             }
-            
+
             if (oper == 1) {
 
             } else if(oper == 2) {
