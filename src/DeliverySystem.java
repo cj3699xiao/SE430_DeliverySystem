@@ -26,4 +26,10 @@ public class DeliverySystem {
         }
     }
 
+    public void printAllOrder() {
+        for (int i = 0; i <= allOrder.size() - 1; i++) {
+            System.out.println(i + ". "+ allOrder.get(i).toString());
+        }
+    }
+
 }

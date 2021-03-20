@@ -59,9 +59,6 @@ public class Customer extends User {
 
                 //show menu, allow add into order
                 newOrder.orderRestaurant.printMenu();
-//                System.out.println("Enter -1 to finish ");
-//                System.out.println("Please select your dishes: ");
-//                String dishInput = input.nextLine();
                 int dishNum = 0;
 
                 while (dishNum != -1) {
@@ -139,6 +136,7 @@ public class Customer extends User {
 
             } else if (oper == 3) {
                 // report to admin, with calls/emails, not inside system
+                System.out.println("Please email your issues to 123@gmail.com. Admin will contact you soon.");
 
             } else if (oper == 9) {
                 break;

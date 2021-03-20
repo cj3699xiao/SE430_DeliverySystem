@@ -2,7 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Restaurant extends User{
-    List<Dish> menu;
+    protected List<Dish> menu;
+    protected List<Order> OrderList;
 
     public Restaurant(String UID, String UN, String PN, String address, String Password, DeliverySystem ds) {
         super(UID, UN, PN, address, Password, ds);

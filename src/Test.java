@@ -24,9 +24,19 @@ public class Test {
         testDS.allRestaurant.add(testR2);
 
 
-        //use journey test
+        //Customer journey test
+        System.out.println("All Orders in system now:");
+        testDS.printAllOrder();
+        System.out.println("--------------");
+
         User test = new Customer("1","testCustomer","312-1111","wow St","123",testDS);
         test.operations();
+
+        System.out.println("All Orders in system now:");
+        testDS.printAllOrder();
+        System.out.println("--------------");
+
+        //Restaurant journey test
 
     }
 }
