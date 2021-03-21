@@ -25,8 +25,6 @@ public class Test {
         testDS.allRestaurant.add(testR1);
         testDS.allRestaurant.add(testR2);
 
-
-
         Customer testCustomer = new Customer("1","testCustomer","312-1111","wow St","123",testDS);
         testDS.allCustomer.add(testCustomer);
         Driver testDriver = new Driver("1","testDriver","312-9999","driver St","123",testDS);
