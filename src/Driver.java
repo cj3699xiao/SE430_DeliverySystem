@@ -115,7 +115,7 @@ public class Driver extends User{
 
             }  else if(oper == 6) {
                 // report to admin, with calls/emails, not inside system
-                System.out.println("Please email your issues to 123@gmail.com. Admin will contact you soon.");
+                super.report();
 
             } else if (oper == 9) {
                 break;
@@ -124,8 +124,6 @@ public class Driver extends User{
                 continue;
             }
         }
-
-//        input.close();
 
     }
 

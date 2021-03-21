@@ -39,7 +39,20 @@ public abstract class User {
     }
 
     public void report() {
+        System.out.println("Please email your issues to 123@gmail.com. Admin will contact you soon.");
+    };
 
+    public String getInfo() {
+        StringBuilder res = new StringBuilder();
+        res.append("UserID: ");
+        res.append(this.UserID);
+        res.append(" UserName: ");
+        res.append(this.UserName);
+        res.append(" PhoneNumber: ");
+        res.append(this.PhoneNumber);
+        res.append(" Address: ");
+        res.append(this.address);
+        return res.toString();
     }
 
     public abstract void operations(Scanner input);

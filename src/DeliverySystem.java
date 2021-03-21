@@ -6,11 +6,13 @@ public class DeliverySystem {
     List<Restaurant> allRestaurant;
     List<Driver> allDriver;
     List<Order> allOrder;
+    List<Administrator> allAdmin;
 
     public DeliverySystem() {
         allRestaurant = new ArrayList<>();
         allCustomer = new ArrayList<>();
         allDriver = new ArrayList<>();
+        allAdmin = new ArrayList<>();
         allOrder = new ArrayList<>();
     }
 

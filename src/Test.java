@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Test {
     //this class is used for testing
     public static void main(String[] args) {
-
+        // initial
         DeliverySystem testDS = new DeliverySystem();
 
         Restaurant testR0 = new Restaurant("0","testBurgerRestaurant0","312-0000","rt0 St","123",testDS);
@@ -29,8 +29,12 @@ public class Test {
         testDS.allCustomer.add(testCustomer);
         Driver testDriver = new Driver("1","testDriver","312-9999","driver St","123",testDS);
         testDS.allDriver.add(testDriver);
+        Administrator testAdmin = new Administrator("1","testAdmin","990-8888","admin St","123",testDS);
+        testDS.allAdmin.add(testAdmin);
 
         Scanner input = new Scanner(System.in);
+
+
         //Customer journey test
         System.out.println("Customer User journey --> ");
         System.out.println("All Orders in system now:");
@@ -67,9 +71,17 @@ public class Test {
         testDS.printAllOrder();
         System.out.println("--------------");
 
+        // Admin user journey test
+        System.out.println("Admin User journey --> ");
+        System.out.println("All Orders in system now:");
+        testDS.printAllOrder();
+        System.out.println("--------------");
 
+        testAdmin.operations(input);
 
-
+        System.out.println("All Orders in system now:");
+        testDS.printAllOrder();
+        System.out.println("--------------");
 
 
         input.close();

@@ -11,7 +11,6 @@ public class Order {
     Driver orderDriver;
 
     // potential changed --> add public cart to improve encapsulation
-    // order --> private
     public Order(int orderID) {
         this.OrderID = orderID;
         OrderContent = new ArrayList<>();
@@ -74,7 +73,7 @@ public class Order {
         DriverDelivering,
         Delivered,
         Reported;
-        // add toString, to do
+
     }
 
 
