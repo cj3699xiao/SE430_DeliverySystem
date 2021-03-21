@@ -83,7 +83,8 @@ public class Customer extends User {
                         continue;
                     }
 
-                    newOrder.OrderContent.add(newOrder.orderRestaurant.menu.get(dishNum));
+//                    newOrder.OrderContent.add(newOrder.orderRestaurant.menu.get(dishNum));
+                    newOrder.addItem(newOrder.orderRestaurant.menu.get(dishNum));
                     newOrder.price += newOrder.orderRestaurant.menu.get(dishNum).price;
 
                     //print current order content

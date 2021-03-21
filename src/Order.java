@@ -17,21 +17,23 @@ public class Order {
         OrderContent = new ArrayList<>();
     }
 
-    public boolean addItem(String item) {
+    protected boolean addItem(Restaurant.Dish dish) {
+        OrderContent.add(dish);
         return true;
     }
 
-    public boolean deleteItem(int index) {
+    protected boolean deleteItem(int index) {
+        OrderContent.remove(index);
         return true;
     }
 
-    public void showDetails() {
-
-    }
-
-    public void submitOrder() {
-
-    }
+//    public void showDetails() {
+//
+//    }
+//
+//    public void submitOrder() {
+//
+//    }
 
     public void emptyOrder() {
         OrderContent = new ArrayList<>();

@@ -84,14 +84,24 @@ public class Driver extends User{
 
             } else if(oper == 3) {
                 // change process status to picked up
-                processOrder.status = Order.Status.DriverDelivering;
-                System.out.println("Status change to Delivering !");
+                if (processOrder == null) {
+                    System.out.println("You have no processing order!");
+                    continue;
+                }
+//                processOrder.status = Order.Status.DriverDelivering;
+//                System.out.println("Status change to Delivering !");
+                this.confirmPickup();
 
             } else if(oper == 4) {
                 // change process status to delivered
-                processOrder.status = Order.Status.Delivered;
-                System.out.println("Status change to Delivered ! We will let the customer know it. ");
-                processOrder = null;
+                if (processOrder == null) {
+                    System.out.println("You have no processing order!");
+                    continue;
+                }
+//                processOrder.status = Order.Status.Delivered;
+//                System.out.println("Status change to Delivered ! We will let the customer know it. ");
+//                processOrder = null;
+                this.confirmDelivered();
 
             } else if(oper == 5) {
                 // show process order status
@@ -126,13 +136,16 @@ public class Driver extends User{
 
 
 
-//    private void confirmDelivered() {
-//
-//    }
-//
-//    private void confirmPickup() {
-//
-//    }
+    private void confirmDelivered() {
+        processOrder.status = Order.Status.Delivered;
+        processOrder = null;
+        System.out.println("Status change to Delivered ! We will let the customer know it. ");
+    }
+
+    private void confirmPickup() {
+        processOrder.status = Order.Status.DriverDelivering;
+        System.out.println("Status change to Delivering !");
+    }
 
 
 }

@@ -64,8 +64,9 @@ public class Restaurant extends User{
                     continue;
                 }
 
-                OrderList.get(orderNum).status = Order.Status.RestaurantPreparing;
-                System.out.println("Order confirmed !");
+//                OrderList.get(orderNum).status = Order.Status.RestaurantPreparing;
+//                System.out.println("Order confirmed !");
+                this.confirmReceived(orderNum);
 
             } else if(oper == 3) {
                 //confirm order is already prepared
@@ -90,8 +91,9 @@ public class Restaurant extends User{
                     continue;
                 }
 
-                OrderList.get(orderNum).status = Order.Status.WaitDriverPickup;
-                System.out.println("Order prepared confirmed! Driver will come and pick it up shortly.");
+//                OrderList.get(orderNum).status = Order.Status.WaitDriverPickup;
+//                System.out.println("Order prepared confirmed! Driver will come and pick it up shortly.");
+                this.confirmPrepared(orderNum);
 
             } else if(oper == 4) {
                 // report to admin, with calls/emails, not inside system
@@ -109,7 +111,7 @@ public class Restaurant extends User{
 
     }
 
-    public void printMenu() {
+    protected void printMenu() {
         for (int i = 0; i <= menu.size() - 1; i++) {
             System.out.println(i + ". " +menu.get(i).toString());
         }
@@ -127,13 +129,15 @@ public class Restaurant extends User{
     }
 
 
-//    private void confirmPrepared() {
-//
-//    }
-//
-//    private void confirmReceived() {
-//
-//    }
+    private void confirmPrepared(int orderNum) {
+        OrderList.get(orderNum).status = Order.Status.WaitDriverPickup;
+        System.out.println("Order prepared confirmed! Driver will come and pick it up shortly.");
+    }
+
+    private void confirmReceived(int orderNum) {
+        OrderList.get(orderNum).status = Order.Status.RestaurantPreparing;
+        System.out.println("Order confirmed !");
+    }
 
     @Override
     public String toString() {
