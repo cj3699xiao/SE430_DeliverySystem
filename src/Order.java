@@ -61,7 +61,7 @@ public class Order {
 
         // add all dishes as well, to do
         for (int i = 0; i <= OrderContent.size() - 1; i++) {
-            res.append("\n" + OrderContent.get(i).toString());
+            res.append("\n" + i + ". " + OrderContent.get(i).toString());
         }
         return res.toString();
     }

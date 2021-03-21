@@ -48,28 +48,28 @@ public class Test {
         System.out.println("--------------");
 
         //Restaurant user journey test
-        System.out.println("Restaurant User journey --> ");
-        System.out.println("All Orders in system now:");
-        testDS.printAllOrder();
-        System.out.println("--------------");
-
-        testR0.operations(input);
-
-        System.out.println("All Orders in system now:");
-        testDS.printAllOrder();
-        System.out.println("--------------");
-
-        // Driver user journey test
-        System.out.println("Driver User journey --> ");
-        System.out.println("All Orders in system now:");
-        testDS.printAllOrder();
-        System.out.println("--------------");
-
-        testDriver.operations(input);
-
-        System.out.println("All Orders in system now:");
-        testDS.printAllOrder();
-        System.out.println("--------------");
+//        System.out.println("Restaurant User journey --> ");
+//        System.out.println("All Orders in system now:");
+//        testDS.printAllOrder();
+//        System.out.println("--------------");
+//
+//        testR0.operations(input);
+//
+//        System.out.println("All Orders in system now:");
+//        testDS.printAllOrder();
+//        System.out.println("--------------");
+//
+//        // Driver user journey test
+//        System.out.println("Driver User journey --> ");
+//        System.out.println("All Orders in system now:");
+//        testDS.printAllOrder();
+//        System.out.println("--------------");
+//
+//        testDriver.operations(input);
+//
+//        System.out.println("All Orders in system now:");
+//        testDS.printAllOrder();
+//        System.out.println("--------------");
 
         // Admin user journey test
         System.out.println("Admin User journey --> ");

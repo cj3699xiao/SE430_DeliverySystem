@@ -50,7 +50,7 @@ public class Administrator extends User{
                     continue;
                 }
 
-                if (orderOp < 0 || orderOp >= this.getDeliverySystem().allOrder.size()) {
+                if (orderOp < 0 || orderOp > this.getDeliverySystem().allOrder.size() -1) {
                     System.out.println("Error! Please enter a valid order id !");
                     continue;
                 }
@@ -92,8 +92,100 @@ public class Administrator extends User{
     }
 
     private void editOrder(int OrderID, Scanner input) {
-        // to do
         // add & remove
+
+        int oper = -1;
+        System.out.println("Please enter following operations: ");
+        System.out.println("1. add dishes");
+        System.out.println("2. remove dishes");
+        System.out.println("3. change status to Reported ");
+        System.out.println("4. cancel ");
+
+        String opInput = input.nextLine();
+
+        try {
+            oper = Integer.parseInt(opInput);
+        } catch (NumberFormatException e) {
+            System.out.println("Error! Please enter a valid operation!");
+        }
+
+        if (oper == 1) {
+            // add dish
+            int addOp = -2;
+            Order process = this.getDeliverySystem().allOrder.get(OrderID);
+
+            while (addOp != -1) {
+                System.out.println(process.toString());
+                System.out.println("-----------------");
+                System.out.println("Here is the menu of restaurant: ");
+                process.orderRestaurant.printMenu();
+
+                System.out.println("Please enter to dish number you want to add or -1 to stop: ");
+                String addInput = input.nextLine();
+
+                try {
+                    addOp = Integer.parseInt(addInput);
+                } catch (NumberFormatException e) {
+                    System.out.println("Error! Please enter a valid operation!");
+                }
+
+                if (addOp == -1) {
+                    continue;
+                }
+
+                if (addOp < 0 || addOp > process.orderRestaurant.menu.size() - 1) {
+                    System.out.println("Error! Please enter a valid dish number!");
+                }
+
+                process.addItem(process.orderRestaurant.menu.get(addOp));
+            }
+
+        } else if(oper == 2) {
+            // remove dish
+            int removeOp = -2;
+            Order process = this.getDeliverySystem().allOrder.get(OrderID);
+
+            while (removeOp != -1) {
+                System.out.println(process.toString());
+
+                System.out.println("Please enter to dish number you want to remove, -3 to clean all or -1 to stop: ");
+                String removeInput = input.nextLine();
+
+                try {
+                    removeOp = Integer.parseInt(removeInput);
+                } catch (NumberFormatException e) {
+                    System.out.println("Error! Please enter a valid operation!");
+                }
+
+                if (removeOp == -1) {
+                    continue;
+                }
+
+                if (removeOp == -3 || process.OrderContent.size() == 0) {
+                    process.emptyOrder();
+                    System.out.println("Order content is clean up !");
+                    break;
+                }
+
+                if (removeOp < 0 || removeOp > process.OrderContent.size() - 1) {
+                    System.out.println("Error! Please enter a valid dish number!");
+                }
+
+                process.deleteItem(removeOp);
+            }
+
+        } else if(oper == 3) {
+
+            this.getDeliverySystem().allOrder.get(OrderID).status = Order.Status.Reported;
+            System.out.println(this.getDeliverySystem().allOrder.get(OrderID).toString());
+
+        } else if(oper == 4) {
+            return;
+        } else {
+            // to be improve
+            return;
+        }
+
 
     }
 
