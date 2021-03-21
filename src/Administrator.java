@@ -60,7 +60,7 @@ public class Administrator extends User{
             } else if(oper == 2) {
                 // print out all restaurant & potential edit
                 for (int i = 0; i <= this.getDeliverySystem().allRestaurant.size() - 1; i++) {
-                    System.out.println(this.getDeliverySystem().allRestaurant.get(i).toString());
+                    System.out.println(this.getDeliverySystem().allRestaurant.get(i).getInfo());
                     System.out.println("--------------");
                 }
 
@@ -92,10 +92,14 @@ public class Administrator extends User{
     }
 
     private void editOrder(int OrderID, Scanner input) {
+        // to do
+        // add & remove
 
     }
 
     private void editRestaurant(int UID) {
+        // to do
+        // add remove dish
 
     }
 
