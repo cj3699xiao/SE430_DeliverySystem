@@ -2,13 +2,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DeliverySystem {
-    List<User> allUser;
+    List<Customer> allCustomer;
     List<Restaurant> allRestaurant;
+    List<Driver> allDriver;
     List<Order> allOrder;
 
     public DeliverySystem() {
         allRestaurant = new ArrayList<>();
-        allUser = new ArrayList<>();
+        allCustomer = new ArrayList<>();
+        allDriver = new ArrayList<>();
         allOrder = new ArrayList<>();
     }
 
