@@ -161,6 +161,7 @@ public class Administrator extends User{
                 }
 
                 process.addItem(process.orderRestaurant.menu.get(addOp));
+                process.updatePrice();
             }
 
         } else if(oper == 2) {
@@ -195,6 +196,7 @@ public class Administrator extends User{
                 }
 
                 process.deleteItem(removeOp);
+                process.updatePrice();
             }
 
         } else if(oper == 3) {

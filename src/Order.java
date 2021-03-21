@@ -26,6 +26,14 @@ public class Order {
         return true;
     }
 
+    protected void updatePrice() {
+        double res = 0;
+        for (Restaurant.Dish cur : OrderContent) {
+            res += cur.price;
+        }
+        price = res;
+    }
+
 //    public void showDetails() {
 //
 //    }
